@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+  <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+  <style> body { padding: 0; margin: 0; } </style>
+  <style>
+
+    button{
+        padding: 3px;
+        font-size: 20px;
+    }
+
+  </style>
+</head>
+
+
+<!-- this disables the right click menu -->
+<body oncontextmenu="return false;">
+<div>
+
+    <!-- these are the tool selector buttons -->
+
+    <!-- this is the draw tool button -->
+    <button onclick="setTool('draw')" id="draw-tool">draw tool</button>
+    <!-- this is the move tool button -->
+    <button onclick="setTool('move')" id="move-tool">move tool</button>
+    <!-- this is the create tool button -->
+    <button onclick="createPaper()" id="create-tool">create tool</button>
+    
+    <!-- this one does nothing but tell you what the tool is -->
+    <button id="thisistext">this is where the selected tool name goes</button>
+</div> 
+
+</body>
+</html>
