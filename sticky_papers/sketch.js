@@ -12,9 +12,9 @@ function setup(){//this is called at the start
 
     for(let i=0;i<10;i++){//these are the starting papers
         papers[i]= new paper(120,260,150,150);
-
+        papers[i].rot=random(360);
     }
-
+        
      drag=new dragDetails();//this initializes the drag information
 }
 function draw(){//this is called every frame after the start
@@ -49,9 +49,7 @@ function mousePressed(){//this is when mouse starts being pressed
                     papers[i].display.stroke(255,247,64);
                     papers[i].display.strokeWeight(13);
                 }
-                let px=papers[i].x;
-                let py=papers[i].y;
-                papers[i].display.line(mouseX-px,mouseY-py,pmouseX-px,pmouseY-py);//this is a line on the paper
+                drawOn(papers[i],mouseX,mouseY,pmouseX,pmouseY);
             }
         }
         papers.reverse();
@@ -95,9 +93,7 @@ function mouseDragged(){//this is when the mouse is down and gets moved
                     papers[i].display.stroke(255,247,64);
                     papers[i].display.strokeWeight(13);
                 }
-                let px=papers[i].x;
-                let py=papers[i].y;
-                papers[i].display.line(mouseX-px,mouseY-py,pmouseX-px,pmouseY-py);
+                drawOn(papers[i],mouseX,mouseY,pmouseX,pmouseY);
             }
         }
         papers.reverse();
@@ -187,28 +183,57 @@ class paper{//this is a class that is a paper
         this.y=y;
         this.width=w;
         this.height=h;
+        this.hw=w/2;
+        this.hh=h/2;
         this.rot=0;
         this.display= createGraphics(this.width,this.height);//this is the image that the paper displays
         this.display.background(255,247,64);
     }
 
     draw(){//this draws the paper on screen
-        image(this.display,this.x,this.y,this.width,this.height);
+        push();
+        translate(this.x+this.width*0.5,this.y+this.height*0.5);
+        rotate(radians(this.rot));
+        image(this.display,-this.hw,-this.hh,this.width,this.height);
         fill(0,0);
         stroke("#ffca18");
         rectMode(CORNERS);
-        rect(this.x,this.y,this.x+this.width,this.y+this.height);
+        rect(-this.hw,-this.hh,this.hw,this.hh);
+        pop();
+
     }
 
 }
 
 
-//this didn't fit in with the other function so i put it here
+
 function ptInsidePaper(pt,ppr){//this determines if a paper intersects the mouse
+    let hw=ppr.hw;
+    let hh=ppr.hh;
+    let ptv = ptinrelrot(pt,ppr);
     let ret=(
-        pt.x>= ppr.x
-        &&pt.x<=ppr.width+ppr.x
-        &&pt.y>= ppr.y
-        &&pt.y<=ppr.height+ppr.y);
+        ptv.x>= -hw
+        &&ptv.x<=hw
+        &&ptv.y>= -hh
+        &&ptv.y<=hh);
     return(ret);
+}
+
+//returns the rotated distance vector
+function ptinrelrot(pt,ppr){
+    let hw=ppr.hw;
+    let hh=ppr.hh;
+    let ptv = p5.Vector.sub(createVector(ppr.x+ppr.hw,ppr.y+ppr.hh),pt);
+    ptv.rotate(radians(-ppr.rot));
+    return(ptv);
+}
+//draws a line on a specific paper
+function drawOn(ppr,mx,my,pmx,pmy){
+    let pr = p5.Vector.sub(createVector(ppr.hw,ppr.hh),ptinrelrot(createVector(mx,my),ppr));
+    let pp = p5.Vector.sub(createVector(ppr.hw,ppr.hh),ptinrelrot(createVector(pmx,pmy),ppr));
+    let px=pr.x;
+    let py=pr.y;
+    let ppx=pp.x;
+    let ppy=pp.y;
+    ppr.display.line(px,py,ppx,ppy);//this is a line on the paper
 }

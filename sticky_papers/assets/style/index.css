@@ -1,11 +1,6 @@
 @charset "utf-8";
 @import "base.css";
 
-/* control bar */
-
-button:disabled, button[disabled]{
-
-}
 
 /* canvas */
 
@@ -23,6 +18,7 @@ header div{
     display: flex;
     justify-content: space-between;
 }
+/* control bar */
 
 header div .bar{
     text-align: left;
