@@ -122,20 +122,13 @@ function doToolbar(){//this is called after the tool changes
 
     if(selectedTool=="move"){
         document.getElementById("move-tool").disabled = true;
-        styleButtonSelected("move-tool");
-        document.getElementById("thisistext").textContent = "the move tool is selected"
     }else{
         document.getElementById("move-tool").disabled = false;
-        styleButtonNonSelected("move-tool");
-        
     }
     if(selectedTool=="draw"){
         document.getElementById("draw-tool").disabled = true;
-        styleButtonSelected("draw-tool");
-        document.getElementById("thisistext").textContent = "the draw tool is selected"
     }else{
         document.getElementById("draw-tool").disabled = false;
-        styleButtonNonSelected("draw-tool");
     }
     
    
@@ -156,13 +149,6 @@ function createPaper(){//this creates a paper where the mouse is
 }
 
 
-//these style buttons
-function styleButtonNonSelected(buttonId){//this styles the buttons to look not selected
-    document.getElementById(buttonId).style = "border-width: 1px; border-style: outset; border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 4px;";
-}
-function styleButtonSelected(buttonId){//this styles th buttons to look selected
-    document.getElementById(buttonId).style = "border: 1px solid black; border-radius: 4px;";
-}
 
 
 //these are the classes
@@ -207,10 +193,11 @@ class paper{//this is a class that is a paper
     }
 
     draw(){//this draws the paper on screen
-        fill(240,236,55);
-        stroke("#ffca18")
-        rect(this.x-2,this.y-2,this.width+2,this.height+2);
         image(this.display,this.x,this.y,this.width,this.height);
+        fill(0,0);
+        stroke("#ffca18");
+        rectMode(CORNERS);
+        rect(this.x,this.y,this.x+this.width,this.y+this.height);
     }
 
 }

@@ -2,42 +2,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
   <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
-  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
-
-  <!-- This line removes any default padding and style.
-       You might only need one of these values set. -->
+  <link rel="stylesheet" href="assets/style/index.css" media="all">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   <style> body { padding: 0; margin: 0; } </style>
-  <style>
-
-    button{
-        padding: 3px;
-        font-size: 20px;
-    }
-
-  </style>
 </head>
 
 
 <!-- this disables the right click menu -->
 <body oncontextmenu="return false;">
-<div>
 
-    <!-- these are the tool selector buttons -->
+  <header>
+    <div class="container flexbox">
+        <div class="bar">
+          <ul>
+              <li><button onclick="setTool('draw')" id="draw-tool"><i class="fa fa-brush"></i></button></li>
+              <li><button onclick="setTool('move')" id="move-tool"><i class="fa fa-hand-paper"></i></button></li>
+              <li><button onclick="createPaper()" id="create-tool"><i class="fa fa-plus"></i></button></li>
+          </ul>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#" target="_blank">Manual</a></li>
+            <li><a href="#" target="_blank">Contact</a></li>
+            <li><a href="#" target="_blank">About us</a></li>
+        </ul>
+        </nav>
+    </div>
+</header>
 
-    <!-- this is the draw tool button -->
-    <button onclick="setTool('draw')" id="draw-tool">draw tool</button>
-    <!-- this is the move tool button -->
-    <button onclick="setTool('move')" id="move-tool">move tool</button>
-    <!-- this is the create tool button -->
-    <button onclick="createPaper()" id="create-tool">create tool</button>
-    
-    <!-- this one does nothing but tell you what the tool is -->
-    <button id="thisistext">this is where the selected tool name goes</button>
-</div> 
 
 </body>
 </html>

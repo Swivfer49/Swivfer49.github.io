@@ -1,0 +1,88 @@
+@charset "utf-8";
+@import "base.css";
+
+/* control bar */
+
+button:disabled, button[disabled]{
+
+}
+
+/* canvas */
+
+
+
+/* header */
+
+header{
+    min-width: 100%;
+    background-color: #57a451;
+    overflow: hidden;
+}
+
+header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+header div .bar{
+    text-align: left;
+    height: 56px;
+}
+header div .bar ul{
+    list-style: none;
+    font-size: 0;
+}
+header div .bar ul li{
+    display: inline;
+    line-height: 56px;
+    cursor: default;
+}
+header div .bar ul li button{
+    padding: 18px;
+    font-size: 20px;
+    color: white;
+    background-color: #57a451;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .2px;
+    text-transform: none;
+    cursor: pointer;
+}
+header div .bar ul li button:hover{
+    color: lightgray;
+    background-color: lightseagreen;
+}
+header div .bar ul li button:disabled{
+    color: grey;
+    background-color: #24ec11;
+}
+
+header div nav{
+    text-align: right;
+    height: 56px;
+}
+header div nav ul{
+    list-style: none;
+    font-size: 0;
+}
+header div nav ul li{
+    display: inline;
+    line-height: 56px;
+    cursor: default;
+}
+
+header div nav ul li a{
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .2px;
+    text-transform: none;
+    cursor: pointer;
+}
+nav ul li a:hover{
+    text-decoration: underline;
+}
+nav ul li+li{
+    margin-left: 25px;
+}
