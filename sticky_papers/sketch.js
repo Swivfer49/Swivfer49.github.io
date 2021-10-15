@@ -55,7 +55,7 @@ function mousePressed(){//this is when mouse starts being pressed
         papers.reverse();
     }
     
-    if(drag.isDragging==false&&selectedTool=='move'){//this starts dragging the top paper that overlaps the mouse pointer
+    if(drag.isDragging==false&&(selectedTool=='move'||selectedTool=="rotate")){//this starts dragging the top paper that overlaps the mouse pointer
         papers.reverse();
         let newPapersList=[];
         let gotOne=false;
@@ -126,6 +126,11 @@ function doToolbar(){//this is called after the tool changes
     }else{
         document.getElementById("draw-tool").disabled = false;
     }
+    if(selectedTool=="rotate"){
+        document.getElementById("rotate-tool").disabled = true;
+    }else{
+        document.getElementById("rotate-tool").disabled = false;
+    }
     
    
 
@@ -159,17 +164,30 @@ class dragDetails{//this is a class that holds drag information
     startDragging(note){
         this.note=note;
         this.isDragging=true;
-        this.relativePos=p5.Vector.sub(createVector(note.x,note.y),createVector(mouseX,mouseY));
+        if(selectedTool=="move"){
+            this.relativePos=p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY));
+        }else if(selectedTool=="rotate"){
+            this.relativePos=createVector(this.note.rot,degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY)))));
+        }
         
     }
     durringDragging(){
-        let pos=p5.Vector.add(this.relativePos,createVector(mouseX,mouseY));
-        if(keyIsPressed&&keyCode===SHIFT){
-            pos.x=round(pos.x/this.note.width)*this.note.width;
-            pos.y=round(pos.y/this.note.height)*this.note.height;
-        }
+        if(selectedTool=="move"){
+            let pos=p5.Vector.add(this.relativePos,createVector(mouseX,mouseY));
+            if(keyIsPressed&&keyCode===SHIFT){
+                pos.x=round(pos.x/this.note.width)*this.note.width;
+                pos.y=round(pos.y/this.note.height)*this.note.height;
+            }
         this.note.x=constrain(pos.x,0,width-10);
         this.note.y=constrain(pos.y,0,height-10);
+        }else if(selectedTool=="rotate"){
+            let rot = this.relativePos.x + this.relativePos.y - degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY))));
+            if(keyIsPressed&&keyCode===SHIFT){
+                rot=round(rot/20)*20;
+            }
+            this.note.rot=-rot;
+        }
+        
     }
     endDragging(){
         this.isDragging=false;
