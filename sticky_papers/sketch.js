@@ -4,10 +4,12 @@ let papers = [];//this is the array with all the sticky papers in it
 
 let drag; //this holds the drag details
 
-
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight - 56);
+  }
 //these are the main processing function
 function setup(){//this is called at the start
-    createCanvas(windowWidth,windowHeight-40);//this determines the canvas size of the board
+    createCanvas(windowWidth,windowHeight-56);//this determines the canvas size of the board
         
      drag=new dragDetails();//this initializes the drag information
 }
@@ -137,7 +139,7 @@ function setTool(toolName){//this allows the html buttons to set the tool
 
 function createPaper(){//this creates a paper where the mouse is
     if(drag.isDragging==false){
-        let newNote=new paper(0,0,150,150);
+        let newNote=new paper(0,0,300,300);
         drag.startDragging(newNote);
         papers.push(newNote);
     }
@@ -244,6 +246,14 @@ function ptinrelrot(pt,ppr){
 }
 //draws a line on a specific paper
 function drawOn(ppr,mx,my,pmx,pmy){
+    if(keyIsPressed&&keyCode===SHIFT){
+        let n=37.5;
+        let n2=1/n;
+        mx=round(mx*n2)*n;
+        my=round(my*n2)*n;
+        pmx=round(pmx*n2)*n;
+        pmy=round(pmy*n2)*n;
+    }
     let pr = p5.Vector.sub(createVector(ppr.hw,ppr.hh),ptinrelrot(createVector(mx,my),ppr));
     let pp = p5.Vector.sub(createVector(ppr.hw,ppr.hh),ptinrelrot(createVector(pmx,pmy),ppr));
     let px=pr.x;
