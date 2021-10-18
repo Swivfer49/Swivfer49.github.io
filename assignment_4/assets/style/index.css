@@ -1,0 +1,164 @@
+@charset "utf-8";
+@import "base.css";
+
+/* header stuff */
+
+header{
+    min-width: 100%;
+    background-color: #57a451;
+    overflow: hidden;
+}
+
+header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+header div .title{
+    height: 56px;
+}
+
+header div .title h1{
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    line-height: 56px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+
+header div nav{
+    text-align: right;
+    height: 56px;
+}
+header div nav ul{
+    list-style: none;
+    font-size: 0;
+}
+header div nav ul li{
+    display: inline;
+    line-height: 56px;
+    cursor: default;
+}
+
+header div nav ul li a{
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .2px;
+    text-transform: none;
+    cursor: pointer;
+}
+nav ul li a:hover{
+    text-decoration: underline;
+}
+nav ul li+li{
+    margin-left: 25px;
+}
+
+
+/* background */
+
+body{
+    background-color: #ccc;
+}
+
+/* columns stuff */
+
+main .container{
+   padding-top: 15%;
+}
+
+.row{
+    margin-top: 30px;
+    display: flex;
+}
+
+.col{
+    height: 80px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #bbb;
+    line-height: 80px;
+    font-size: 18px;
+    text-align: center;
+    width: calc(33.333333% - 15px);
+}
+
+.col + .col{
+    margin-left: 30px;
+}
+
+.col i{
+    display: inline;
+    color: green;
+    text-align: center;
+    line-height: 25px;
+    font-size: 25px;
+    padding: 9px;
+    border-radius: 50%;
+    background-color: rgba(31, 177, 31, 0.493);
+}
+
+.col p{
+    display: inline;
+    margin-left: 25px;
+    color: black;
+}
+
+
+/* search bar */
+
+.search{
+    height: 56px;
+    background-color: transparent;
+    text-align: center;
+    
+}
+
+.search form{
+    height: 50px;
+    margin: 3px;
+    color: white;
+    text-align: right;
+    font-size: 0;
+}
+
+.search form input{
+    color: white;
+    margin: 0;
+    font-size: 17px;
+    background-color: #468542;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    height: 100%;
+    width: 75%;
+    padding-left: 5%;
+    line-height: 50px;
+    text-align: left;
+    display: inline-block;
+}
+
+.search form input::placeholder{
+    color: white;
+}
+
+.search form p{
+    display: inline-block;
+    background-color: #468542;
+    color: white;
+    margin: 0;
+    height: 100%;
+    width: 20%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 17px;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.search form p:hover, .search form input:hover{
+    background-color: #65bd5e;
+}
+
+
