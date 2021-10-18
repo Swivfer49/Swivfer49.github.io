@@ -4,6 +4,10 @@
 
 /* canvas */
 
+main #defaultCanvas0{
+    height: calc(100vh - 56px);
+    width: 100vw;
+}
 
 
 /* header */

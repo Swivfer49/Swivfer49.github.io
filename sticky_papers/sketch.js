@@ -8,12 +8,6 @@ let drag; //this holds the drag details
 //these are the main processing function
 function setup(){//this is called at the start
     createCanvas(windowWidth,windowHeight-40);//this determines the canvas size of the board
-    
-
-    for(let i=0;i<10;i++){//these are the starting papers
-        papers[i]= new paper(120,260,150,150);
-        papers[i].rot=random(360);
-    }
         
      drag=new dragDetails();//this initializes the drag information
 }
@@ -143,7 +137,7 @@ function setTool(toolName){//this allows the html buttons to set the tool
 
 function createPaper(){//this creates a paper where the mouse is
     if(drag.isDragging==false){
-        let newNote=new paper(mouseX,mouseY,150,150);
+        let newNote=new paper(0,0,150,150);
         drag.startDragging(newNote);
         papers.push(newNote);
     }
@@ -156,40 +150,43 @@ function createPaper(){//this creates a paper where the mouse is
 class dragDetails{//this is a class that holds drag information
 
     constructor(){
-        this.isDragging=false;
-        this.relativePos=createVector(0,0);
-        this.note;
+        this.isDragging=false;//is dragging
+        this.relativePos=createVector(0,0);//reletive pos from mouse to center of note OR relative rotation to mousse
+        this.note;//the note
     }
 
     startDragging(note){
-        this.note=note;
-        this.isDragging=true;
-        if(selectedTool=="move"){
+        this.note=note;//set the note to the note
+        this.isDragging=true;//now says is dragging
+        if(selectedTool=="move"){//set up for moving
             this.relativePos=p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY));
-        }else if(selectedTool=="rotate"){
-            this.relativePos=createVector(this.note.rot,degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY)))));
+        }else if(selectedTool=="rotate"){//sex up for rotating
+            this.relativePos=createVector(this.note.rot,degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x+this.note.hw,this.note.y+this.note.hh),createVector(mouseX,mouseY)))));
         }
         
     }
     durringDragging(){
-        if(selectedTool=="move"){
+        if(selectedTool=="move"){//if you are trying to move the note
             let pos=p5.Vector.add(this.relativePos,createVector(mouseX,mouseY));
-            if(keyIsPressed&&keyCode===SHIFT){
-                pos.x=round(pos.x/this.note.width)*this.note.width;
-                pos.y=round(pos.y/this.note.height)*this.note.height;
+            if(keyIsPressed&&keyCode===SHIFT){//for grid snapping
+                pos.x=round(pos.x/this.note.hw)*this.note.hw;
+                pos.y=round(pos.y/this.note.hh)*this.note.hh;
             }
+            //keep the note on the screen
         this.note.x=constrain(pos.x,0,width-10);
         this.note.y=constrain(pos.y,0,height-10);
-        }else if(selectedTool=="rotate"){
-            let rot = this.relativePos.x + this.relativePos.y - degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY))));
-            if(keyIsPressed&&keyCode===SHIFT){
-                rot=round(rot/20)*20;
+        }else if(selectedTool=="rotate"){//when you are rotating the note
+            //get the new rotation value 
+            let rot =  -this.relativePos.x + this.relativePos.y - degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x+this.note.hw,this.note.y+this.note.hh),createVector(mouseX,mouseY))));
+            
+            if(keyIsPressed&&keyCode===SHIFT){//snap to angles
+                rot=round(rot/22.5)*22.5;
             }
-            this.note.rot=-rot;
+            this.note.rot=-rot;//set the note angle
         }
         
     }
-    endDragging(){
+    endDragging(){//when you stop dragging
         this.isDragging=false;
     }
 
