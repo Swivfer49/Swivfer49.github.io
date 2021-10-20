@@ -49,6 +49,8 @@ header div .bar ul li button{
     text-transform: none;
     cursor: pointer;
 }
+
+/* the hidden color input */
 #color{
     -webkit-appearance: none;
     display: none;
@@ -62,6 +64,7 @@ header div .bar ul li button:disabled, header div .bar ul li button.true{
     background-color: #24ec11;
 }
 
+/* the circle */
 #colorTool{
     --pen-color:#000;
     color: var(--pen-color);
