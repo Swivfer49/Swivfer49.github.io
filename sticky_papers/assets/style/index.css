@@ -1,7 +1,6 @@
 @charset "utf-8";
 @import "base.css";
 
-
 /* canvas */
 
 main #defaultCanvas0{
@@ -40,6 +39,8 @@ header div .bar ul li{
 header div .bar ul li button{
     padding: 18px;
     font-size: 20px;
+    max-width: 56px;
+    max-height: 56px;
     color: white;
     background-color: #57a451;
     font-weight: 600;
@@ -48,15 +49,27 @@ header div .bar ul li button{
     text-transform: none;
     cursor: pointer;
 }
+#color{
+    -webkit-appearance: none;
+    display: none;
+}
 header div .bar ul li button:hover{
     color: lightgray;
     background-color: lightseagreen;
 }
-header div .bar ul li button:disabled{
+header div .bar ul li button:disabled, header div .bar ul li button.true{
     color: grey;
     background-color: #24ec11;
 }
 
+#colorTool{
+    --pen-color:#000;
+    color: var(--pen-color);
+    background-color: #57a451;
+}
+#colorTool:hover{
+    background-color: lightseagreen;
+}
 header div nav{
     text-align: right;
     height: 56px;

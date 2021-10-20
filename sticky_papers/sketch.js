@@ -4,13 +4,17 @@ let papers = [];//this is the array with all the sticky papers in it
 
 let drag; //this holds the drag details
 
+let snap = false;
+
+let penTool;
+
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight - 56);
   }
 //these are the main processing function
 function setup(){//this is called at the start
-    createCanvas(windowWidth,windowHeight-56);//this determines the canvas size of the board
-        
+    createCanvas( windowWidth, windowHeight - 56);//this determines the canvas size of the board
+    penTool = new pen(color(0),3);
      drag=new dragDetails();//this initializes the drag information
 }
 function draw(){//this is called every frame after the start
@@ -33,22 +37,7 @@ function draw(){//this is called every frame after the start
 //these are the mouse events
 function mousePressed(){//this is when mouse starts being pressed
     if(selectedTool=='draw'){//this draws on the notes
-        let d=true;
-        papers.reverse();
-        for(let i=0;i<papers.length;i++){
-            if((ptInsidePaper(createVector(mouseX,mouseY),papers[i])||ptInsidePaper(createVector(pmouseX,pmouseY),papers[i]))&&d==true){
-                d=false;
-                if(mouseButton===LEFT){//the draw tool
-                    papers[i].display.stroke(0);
-                    papers[i].display.strokeWeight(3);
-                }else{//the erase tool
-                    papers[i].display.stroke(255,247,64);
-                    papers[i].display.strokeWeight(13);
-                }
-                drawOn(papers[i],mouseX,mouseY,pmouseX,pmouseY);
-            }
-        }
-        papers.reverse();
+        lineDraw(mouseX,mouseY,pmouseX,pmouseY,penTool);
     }
     
     if(drag.isDragging==false&&(selectedTool=='move'||selectedTool=="rotate")){//this starts dragging the top paper that overlaps the mouse pointer
@@ -77,22 +66,7 @@ function mouseDragged(){//this is when the mouse is down and gets moved
         drag.durringDragging();
     }
     if(selectedTool=='draw'){//this also does drawing on the papers
-        let d=true;
-        papers.reverse();
-        for(let i=0;i<papers.length;i++){
-            if((ptInsidePaper(createVector(mouseX,mouseY),papers[i])||ptInsidePaper(createVector(pmouseX,pmouseY),papers[i]))&&d==true){
-                d=false;
-                if(mouseButton===LEFT){
-                    papers[i].display.stroke(0);
-                    papers[i].display.strokeWeight(3);
-                }else{
-                    papers[i].display.stroke(255,247,64);
-                    papers[i].display.strokeWeight(13);
-                }
-                drawOn(papers[i],mouseX,mouseY,pmouseX,pmouseY);
-            }
-        }
-        papers.reverse();
+        lineDraw(mouseX,mouseY,pmouseX,pmouseY,penTool);
     }
 }
 function mouseReleased(){//this is when the mouse is released
@@ -148,6 +122,8 @@ function createPaper(){//this creates a paper where the mouse is
 
 
 
+
+
 //these are the classes
 class dragDetails{//this is a class that holds drag information
 
@@ -163,14 +139,14 @@ class dragDetails{//this is a class that holds drag information
         if(selectedTool=="move"){//set up for moving
             this.relativePos=p5.Vector.sub(createVector(this.note.x,this.note.y),createVector(mouseX,mouseY));
         }else if(selectedTool=="rotate"){//sex up for rotating
-            this.relativePos=createVector(this.note.rot,degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x+this.note.hw,this.note.y+this.note.hh),createVector(mouseX,mouseY)))));
+            this.relativePos=createVector(this.note.rot,degrees(p5.Vector.sub(createVector(this.note.x+this.note.hw,this.note.y+this.note.hh),createVector(mouseX,mouseY)).heading()));
         }
         
     }
     durringDragging(){
         if(selectedTool=="move"){//if you are trying to move the note
             let pos=p5.Vector.add(this.relativePos,createVector(mouseX,mouseY));
-            if(keyIsPressed&&keyCode===SHIFT){//for grid snapping
+            if(snap){//for grid snapping
                 pos.x=round(pos.x/this.note.hw)*this.note.hw;
                 pos.y=round(pos.y/this.note.hh)*this.note.hh;
             }
@@ -179,9 +155,9 @@ class dragDetails{//this is a class that holds drag information
         this.note.y=constrain(pos.y,0,height-10);
         }else if(selectedTool=="rotate"){//when you are rotating the note
             //get the new rotation value 
-            let rot =  -this.relativePos.x + this.relativePos.y - degrees(createVector(1,0).angleBetween(p5.Vector.sub(createVector(this.note.x+this.note.hw,this.note.y+this.note.hh),createVector(mouseX,mouseY))));
+            let rot =  -this.relativePos.x + this.relativePos.y - degrees(p5.Vector.sub(createVector(this.note.x+this.note.hw,this.note.y+this.note.hh),createVector(mouseX,mouseY)).heading());
             
-            if(keyIsPressed&&keyCode===SHIFT){//snap to angles
+            if(snap){//snap to angles
                 rot=round(rot/22.5)*22.5;
             }
             this.note.rot=-rot;//set the note angle
@@ -221,6 +197,12 @@ class paper{//this is a class that is a paper
     }
 
 }
+class pen{
+    constructor(penColor,penSize){
+        this.penColor=penColor;
+        this.penSize=penSize;
+    }
+}
 
 
 
@@ -246,7 +228,7 @@ function ptinrelrot(pt,ppr){
 }
 //draws a line on a specific paper
 function drawOn(ppr,mx,my,pmx,pmy){
-    if(keyIsPressed&&keyCode===SHIFT){
+    if(snap){
         let n=37.5;
         let n2=1/n;
         mx=round(mx*n2)*n;
@@ -261,4 +243,29 @@ function drawOn(ppr,mx,my,pmx,pmy){
     let ppx=pp.x;
     let ppy=pp.y;
     ppr.display.line(px,py,ppx,ppy);//this is a line on the paper
+}
+
+function mLine(x1,y1,x2,y2,pen){
+
+    
+
+}
+
+function lineDraw(x1,y1,x2,y2,pen){
+    let d=true;
+    papers.reverse();
+    for(let i=0;i<papers.length;i++){
+        if((ptInsidePaper(createVector(x1,y1),papers[i])||ptInsidePaper(createVector(x2,y2),papers[i]))&&d==true){
+            d=false;
+            if(mouseButton===LEFT){
+                papers[i].display.stroke(pen.penColor);
+                papers[i].display.strokeWeight(pen.penSize);
+            }else{
+                papers[i].display.stroke(255,247,64);
+                papers[i].display.strokeWeight(13);
+            }
+            drawOn(papers[i],x1,y1,x2,y2);
+        }
+    }
+    papers.reverse();
 }

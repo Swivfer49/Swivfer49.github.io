@@ -24,6 +24,9 @@
               <li><button onclick="setTool('move')" id="move-tool"><i class="fa fa-hand-paper"></i></button></li>
               <li><button onclick="setTool('rotate')" id="rotate-tool"><i class="fa fa-redo-alt"></i></button></li>
               <li><button onclick="createPaper()" id="create-tool"><i class="fa fa-plus"></i></button></li>
+              <li><button onclick="snap= !snap; document.getElementById('snap').className=snap" id="snap"><i class="fa fa-chess-board"></i></button></li>
+              <li><input type="color" value="#000" onchange="penTool.penColor=document.getElementById('color').value;  document.querySelector('#colorTool').style.setProperty('--pen-color', document.getElementById('color').value)" id="color"></li>
+              <li><button onclick="document.getElementById('color').click()" id="colorTool"><i class="fa fa-circle"></i></button></li>
           </ul>
         </div>
         <nav>
