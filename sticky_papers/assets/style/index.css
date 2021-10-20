@@ -53,6 +53,7 @@ header div .bar ul li button{
 /* the hidden color input */
 #color{
     -webkit-appearance: none;
+    appearance: none;
     display: none;
 }
 header div .bar ul li button:hover{
