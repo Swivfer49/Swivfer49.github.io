@@ -21,6 +21,35 @@ header div{
     display: flex;
     justify-content: space-between;
 }
+header div nav{
+    text-align: right;
+    height: 56px;
+}
+header div nav ul{
+    list-style: none;
+    font-size: 0;
+}
+header div nav ul li{
+    display: inline;
+    line-height: 56px;
+    cursor: default;
+}
+
+header div nav ul li a{
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .2px;
+    text-transform: none;
+    cursor: pointer;
+}
+nav ul li a:hover{
+    text-decoration: underline;
+}
+nav ul li+li{
+    margin-left: 25px;
+}
 /* control bar */
 
 header div .bar{
@@ -52,8 +81,7 @@ header div .bar ul li button{
 
 /* the hidden color input */
 #color{
-    -webkit-appearance: none;
-    appearance: none;
+   visibility: hidden;
     display: none;
 }
 header div .bar ul li button:hover{
@@ -73,33 +101,4 @@ header div .bar ul li button:disabled, header div .bar ul li button.true{
 }
 #colorTool:hover{
     background-color: lightseagreen;
-}
-header div nav{
-    text-align: right;
-    height: 56px;
-}
-header div nav ul{
-    list-style: none;
-    font-size: 0;
-}
-header div nav ul li{
-    display: inline;
-    line-height: 56px;
-    cursor: default;
-}
-
-header div nav ul li a{
-    font-size: 17px;
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: .2px;
-    text-transform: none;
-    cursor: pointer;
-}
-nav ul li a:hover{
-    text-decoration: underline;
-}
-nav ul li+li{
-    margin-left: 25px;
 }
