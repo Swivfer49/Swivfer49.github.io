@@ -1,0 +1,79 @@
+:root{
+
+    --black: #0f095c;
+    --white: #fdfdfd;
+    --background-color: #f1f3f7;
+    --gray: #e0e0e0;
+
+    --c1: #29316b;
+    --lc1: #6b76c6;
+
+    --c2: #42296b;
+    --lc2: #bb6bc6;
+
+    --c3: #63296b;
+    --lc3: #bb6bc6;
+
+    --shadow: 0 20px 48px 0 rgba(59, 69, 152, 0.15);
+
+    --header-height: 56px;
+    --footer-height: 75px;
+
+    --header-font: 'Nunito Sans', 'Open Sans', Arial, sans-serif;
+    --hero-banner-font: 'kanit';
+    --text-font: 'kanit';
+    --button-font: 'Nunito Sans', 'Open Sans', Arial, sans-serif;
+
+    --most-i-color: var(--c1);
+    --most-i-r-color: var(--white);
+    --middle-i-color: var(--c2);
+    --middle-i-r-color: var(--lc3);
+    --least-i-color: var(--c3);
+    --least-i-r-color: var(--lc1);
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    transition: 0s;
+    color: var(--black);
+}
+
+.hero-banner{
+    font-family: var(--hero-banner-font);
+}
+header, footer{
+    font-family: var(--header-font);
+}
+.button, input:last-child{
+    font-family: var(--button-font);
+}
+
+
+body, input, textarea{
+    font-family: 'Nunito Sans', 'Open Sans', Arial, sans-serif;
+    -webkit-font-smothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0;
+}
+
+.container {
+    position: relative;
+    padding: 0 15px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.row-container{
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+

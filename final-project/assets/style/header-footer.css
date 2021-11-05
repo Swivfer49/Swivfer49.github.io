@@ -1,0 +1,134 @@
+/* header */
+
+header{
+    --header-back: white;
+    --header-text: black;
+    --header-text-hover: white;
+    --header-back-hover: blue;
+    --height: var(--header-height);
+
+    min-width: 100%;
+    background-color: var(--header-back);
+    overflow: hidden;
+    height: var(--height);
+}
+header div{
+    display: flex;
+    justify-content: space-between;
+}
+header div .title{
+    height: var(--height);
+}
+header div .title h1{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: var(--height);
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+.title h1 a{
+    color: var(--header-text);
+    text-decoration: none;
+}
+header div nav{
+    text-align: right;
+    height: var(--height);
+}
+header div nav ul{
+    list-style: none;
+    font-size: 0;
+}
+header div nav ul li{
+    display: inline;
+    line-height: var(--height);
+    cursor: default;
+}
+header div nav ul li a{
+    font-size: 17px;
+    color: var(--header-text);
+    background-color: var(--header-back);
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .2px;
+    text-transform: none;
+    cursor: pointer;
+    padding: 28px;
+    transition: all .25s ease-in-out;
+}
+header div nav ul li a:hover{
+    background-color: var(--header-back-hover);
+    color: var(--header-text-hover);
+}
+
+/* mobile-nav */
+
+.mobile-nav{
+    overflow: hidden;
+}
+.mobile-nav p i{
+    margin-top: 18px;
+    font-size: 20px;
+    color: var(--header-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* footer */
+
+footer{
+    --height: var(--footer-height);
+    --text-color: var(--black);
+    --back-color: var(--gray);
+
+    height: var(--height);
+    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--back-color);
+    overflow: hidden;
+}
+footer div{
+    display: flex;
+    justify-content: space-between;
+}
+footer div .title{
+    height: var(--height);
+}
+footer div .title h1{
+    font-family: var(--header-font);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: var(--height);
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+footer div .nav{
+    text-align: right;
+    height: 100px;
+}
+footer div .nav ul{
+    list-style: none;
+    font-size: 0;
+}
+footer div .nav ul li{
+    display: inline;
+    line-height: var(--height);
+    cursor: default;
+}
+footer div .nav ul li a{
+    font-family: var(--header-font);
+    font-size: 17px;
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .2px;
+    text-transform: none;
+    cursor: pointer;
+}
+.nav ul li a:hover{
+    text-decoration: underline;
+}
+.nav ul li+li{
+    margin-left: 25px;
+}
