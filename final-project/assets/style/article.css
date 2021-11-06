@@ -96,8 +96,19 @@ section .container h3{
     padding: 0 15px;
     padding-top: 65px;
 }
-section .container h3:first-child{
-    padding-top: 0;
+section .container h3:first-of-type{
+    padding-top: 15px;
+}
+figure{
+    shape-outside: margin-box;
+    float: left;
+    padding: 15px;
+    padding-bottom: 0;
+}
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 30%;
 }
 
 
