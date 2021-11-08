@@ -111,19 +111,22 @@ section h2{
     width: 100%;
     height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .form form{
     margin-top: 20px;
     width: 100%;
 }
-input, textarea{
+form > input, form > textarea{
     display: block;
     box-sizing: content-box;
     background-color: var(--textarea-color);
     margin-top: 15px;
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     line-height: 40px;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 6px;
     color: var(--textarea-text-color);
     font-size: 18px;
@@ -136,16 +139,39 @@ textarea{
     height: 80px;
     resize: none;
 }
-input:last-child{
-    background-color: var(--button-color);
-    color: var(--button-text);
-    border-radius: 50px;
-}
-input:last-child:hover{
-    background-color: var(--button-hover);
-    color: var(--button-hover-text);
-}
+.button{
+    --back-color: var(--lc1);
+    --text-color: var(--white);
+    --hover-text: var(--back-color);
+    --hover-back: var(--text-color);
 
+    width: 100%;
+    display: flex;
+    justify-content: var(--align);
+}
+.button input {
+    display: inline-block;
+    width: 100%;
+    height: 46px;
+    margin-top: 34px;
+    line-height: 45px;
+    background-color: var(--back-color);
+    border-radius: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: .1px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 2.5 ease-in-out;
+    border: var(--back-color) 2px solid;
+}
+.button input:hover{
+    background-color: var(--hover-back);
+    color: var(--hover-text);
+}
 /* links */
 
 .fill{
@@ -188,6 +214,34 @@ input:last-child:hover{
     font-weight: 400;
     height: 40px;
 }
+figcaption{
+    display: block;
+    box-sizing: content-box;
+    line-height: 20px;
+    color: var(--textarea-text-color);
+    font-size: 18px;
+    font-weight: 400;
+    height: 20px;
+    padding: 5px;
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 6px;
+}
+
+figure{
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+}
+img{
+    max-width: 100%;
+    border-radius: 6px;
+
+}
 
 
 /* media q */
@@ -218,6 +272,6 @@ input:last-child:hover{
         max-width: 50%;
     }
     .col-2 .col-content{
-        height: 415px;
+        height: 475px;
     }
 }
