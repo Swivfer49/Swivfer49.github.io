@@ -167,9 +167,19 @@ section h2{
 .right figure{
     height: 200px;
     width: fit-content;
+    animation: movement 10s linear infinite;
 }
 figure img{
     height: 100%;
+}
+@keyframes movement{
+    0%, 100%{transform: translate(0,0) rotateZ(0deg);}
+    10%{transform: translate(0,0) rotateZ(100deg);}
+    20%{transform: translate(0,0) rotateZ(200deg);}
+    50%{transform: translate(0,0) rotateZ(200deg);}
+    60%{transform: translate(40px,15px) rotateZ(200deg);}
+    70%{transform: translate(20px,-15px) rotateZ(100deg);}
+    90%{transform: translate(0,0) rotateZ(0deg);}
 }
 .hero-banner:nth-child(2) h2, .hero-banner:nth-child(2) h3{
     color: var(--c2);
