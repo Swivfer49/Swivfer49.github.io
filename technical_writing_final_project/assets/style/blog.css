@@ -50,7 +50,7 @@ section h2{
 }
 .col{
     --align: center;
-    --background-image: url(../img/colorful-mountain.jpg);
+    --background-image: url(../img/spback.png);
     width: 100%;
     padding: 15px;
     
@@ -75,6 +75,10 @@ section h2{
 }
 .col-content#htmlcss{
     --background-image: url(../img/html-code.jpg);
+    --text-color: var(--white);
+}
+.col-content#aboutme{
+    --background-image: url(../img/plant-pic.jpg);
     --text-color: var(--white);
 }
 .content{
