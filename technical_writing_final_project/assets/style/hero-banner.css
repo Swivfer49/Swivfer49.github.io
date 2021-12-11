@@ -1,0 +1,277 @@
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - */
+/* Standard                                    */
+/* - - - - - - - - - - - - - - - - - - - - - - */
+.button{
+    --back-color: var(--c1);
+    --text-color: var(--white);
+    --hover-text: var(--back-color);
+    --hover-back: var(--text-color);
+
+    width: 100%;
+    display: flex;
+    justify-content: var(--align);
+}
+.button a {
+    display: inline-block;
+    width: 120px;
+    height: 46px;
+    margin-top: 34px;
+    line-height: 45px;
+    background-color: var(--back-color);
+    border-radius: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: .1px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 2.5 ease-in-out;
+    border: var(--back-color) 2px solid;
+}
+.button a:hover{
+    background-color: var(--hover-back);
+    color: var(--hover-text);
+}
+
+.hero-banner{
+    --text-color: var(--white);
+    --title-size: 46px;
+    --subtitle-size: 24px;
+    --align: center;
+    --vertical-align: center;
+    --background: ;
+    --background-image: ;
+    --background-color: white;
+    text-align: var(--align);
+    font-family: var(--text-font);
+    background: var(--background);
+    background-image: var(--background-image);
+    display: flex;
+    align-items: var(--vertical-align);
+}
+.hero-banner h2{
+    font-size: var(--title-size);
+    font-weight: 300;
+    color: var(--text-color);
+    text-align: var(--align);
+}
+.hero-banner h3{
+    font-size: var(--subtitle-size);
+    font-weight: 300;
+    color: var(--text-color);
+    text-align: var(--align);
+}
+.hero-banner hr{
+    width: 70px;
+    margin: 0 auto;
+    margin-top: 22px;
+    border-top: 3px solid var(--text-color);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - */
+/* landing                                     */
+/* - - - - - - - - - - - - - - - - - - - - - - */
+.hero-banner.landing{
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - */
+/* Align left                                  */
+/* - - - - - - - - - - - - - - - - - - - - - - */
+.hero-banner.left{
+    --align: left;
+    --vertical-align: center;
+    padding: 64px 28px 69px 28px;
+}
+.hero-banner.left .container{
+    margin-left: 15px;
+}
+.hero-banner.left hr{
+    margin-left: 0;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - */
+/* Gradient background                         */
+/* - - - - - - - - - - - - - - - - - - - - - - */
+.hero-banner.gradient-background{
+    background: var(--c3) ;
+    background: #fff var(--background-image) center center / cover no-repeat fixed;
+}
+.hero-banner.gradient-background .container .button{
+    --back-color: var(--white);
+    --text-color: var(--c2);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - */
+/* Describe image                              */
+/* - - - - - - - - - - - - - - - - - - - - - - */
+.hero-banner.describe-image{
+    height: fit-content;
+    padding: 44px 28px 49px 28px;
+    background-color: var(--white);
+    --align: left;
+    background-image: none;
+}
+.hero-banner.hero-banner.describe-image .container{
+    display: flex;
+    
+}
+.hero-banner.describe-image .left{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 0;
+}
+.hero-banner.describe-image .right{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-banner.describe-image .right figure{
+    height: 200px;
+    width: fit-content;
+}
+figure img{
+    height: 100%;
+}
+.hero-banner.describe-image h2, .hero-banner.describe-image h3{
+    color: var(--black);
+}
+.hero-banner.describe-image .button{
+    width: fit-content;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - */
+/* Article title                               */
+/* - - - - - - - - - - - - - - - - - - - - - - */
+.hero-banner.article-header{
+    background-color: var(--white);
+    --text-color: var(--black);
+    --align: center;
+    background-image: var(--background-image);
+}
+
+.container.last{
+    padding-bottom: 95px;
+}
+
+
+
+
+
+/* media q */
+
+/* smallest */
+@media screen and (min-width: 320px){ 
+    .hero-banner.describe-image .left, .hero-banner.describe-image .right{
+        width: 100%;
+    }
+    .hero-banner.describe-image{
+        --align: center;
+    }
+    .hero-banner.describe-image h2, .hero-banner.describe-image h3, .hero-banner.describe-image .button{
+        width: 100%;
+    }
+    .hero-banner.describe-image .container{
+        flex-direction: column-reverse;
+    }
+
+    .hero-banner.article-header, .hero-banner.landing{
+        height: fit-content;
+        padding: 90px 0;
+    }
+
+    /* the alignment of everything in hero banners */
+    .hero-banner.sm-left{
+        --align: left;
+        --vertical-align: center;
+    }
+    .hero-banner.sm-left .container{
+        margin-left: 15px;
+    }
+    .hero-banner.sm-center{
+        --align: center;
+        --vertical-align: center;
+    }
+    .hero-banner.sm-center .container{
+        margin: 0 auto;
+    }
+}
+/* small */
+@media screen and (min-width: 580px){
+    .hero-banner.sm-left{
+        --align: left;
+        --vertical-align: center;
+    }
+    .hero-banner.sm-left .container{
+        margin-left: 15px;
+    }
+    .hero-banner.sm-center{
+        --align: center;
+        --vertical-align: center;
+    }
+    .hero-banner.sm-center .container{
+        margin: 0 auto;
+    }
+
+    .hero-banner.article-header, .hero-banner.landing{
+        height: calc(100vh - var(--header-height) - var(--footer-height));
+    }
+}
+/* medium */
+@media screen and (min-width: 768px){
+    .hero-banner.describe-image .left, .hero-banner.describe-image .right{
+        width: 50%;
+    }
+    .hero-banner.describe-image .container{
+        flex-direction: row;
+    }
+    .hero-banner.describe-image{
+        --align: left;
+    }
+    .hero-banner.describe-image h2, .hero-banner.describe-image h3, .hero-banner.describe-image .button{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .hero-banner.md-left .container .button{
+        width: fit-content;
+    }
+    .hero-banner.md-left{
+        --align: left;
+        --vertical-align: center;
+    }
+    .hero-banner.md-left .container{
+        margin-left: 15px;
+    }
+    .hero-banner.md-center{
+        --align: center;
+        --vertical-align: center;
+    }
+    .hero-banner.md-center .container{
+        margin: 0 auto;
+    }
+}        
+/* large */
+@media screen and (min-width: 1024px){
+    .hero-banner.lg-left{
+        --align: left;
+        --vertical-align: center;
+    }
+    .hero-banner.lg-left .container{
+        margin-left: 15px;
+    }
+    .hero-banner.lg-center{
+        --align: center;
+        --vertical-align: center;
+    }
+    .hero-banner.lg-center .container{
+        margin: 0 auto;
+    }
+}

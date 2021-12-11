@@ -1,0 +1,219 @@
+@charset "utf-8";
+@import "base.css";
+@import "header-footer.css";
+@import "hero-banner.css";
+
+body{
+    background-color: var(--background-color);
+}
+/* variables */
+
+:root{/* variables:all */
+    --textarea-color: var(--background-color);
+    --textarea-text-color: var(--c2);
+    --button-color: var(--c1);
+    --button-hover: var(--lc3);
+    --button-text: var(--white);
+    --button-hover-text: var(--c3);
+}
+header{/* variables:header */
+    --header-back: var(--gray);
+    --header-text: var(--c2);
+    --header-text-hover: var(--gray);
+    --header-back-hover: var(--c1);
+    --height: var(--header-height);
+}
+section .container{
+    padding: 0 5%;
+}
+
+/* sections */
+section li, section h3, section h2, section p{
+    font-family: var(--header-font);
+}
+
+section{
+    --text-color: var(--c2);
+    --h-color: var(--black);
+
+    padding: 80px 0;
+    background-color: var(--background-color);
+}
+section + section{
+    padding-top: 0;
+}
+section h2{
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    padding-bottom: 25px;
+    margin-top: 90px;
+}
+section .container p, section .container ol, section .container ul, pre{
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    padding: 15px;
+    font-size: 20px;
+    font-family: var(--header-font);
+    font-weight: 400;
+    line-height: 40px;
+}
+section .container ul, section .container ol {
+    list-style: inside;
+    padding: 0 15px;
+    padding-bottom: 15px;
+    margin: -6px 0;
+}
+section .container ol{
+    list-style: decimal inside;
+}
+section .container ul p, section .container ol p{
+    font-size: 20px;
+    padding: 0;
+}
+section .container ol > li{
+    margin-top: 30px;
+}
+section .container ol li h3{
+    font-size: 22px;
+    font-weight: 500;
+    display: inline;
+}
+section .container ol li p{
+    font-size: 20px;
+    font-weight: 400;
+}
+section .container ol li::marker{
+    font-weight: 500;
+}
+section .container h3{
+    color: var(--h-color);
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0 15px;
+    padding-top: 65px;
+}
+section .container h3:first-child{
+    padding-top: 0;
+}
+code, pre{
+    padding: 0 3px;
+    border-radius: 3px;
+    background-color: var(--gray);
+    color: var(--lc3);
+}
+pre{
+    margin: 0 15px;
+}
+code.red,code.red i{
+    color: red;
+}
+code.green, code.green i{
+    color:  #72A603;
+}
+.figs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+figure{
+    width: calc(50% - 30px);
+    background-color: var(--white);
+    height: fit-content;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: var(--shadow);
+}
+figcaption{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: var(--header-font);
+}
+
+img{
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 1px 3px rgba(130,135,140,0.1);
+}
+figure.full-width{
+    width: calc(100% - 30px);
+}
+
+p a{
+    color: var(--lc2);
+    text-decoration: none;
+}
+p a:hover{
+    color: var(--lc1);
+    text-decoration: underline;
+}
+
+table{
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    margin: 15px;
+    font-size: 20px;
+    font-family: var(--header-font);
+    font-weight: 400;
+    line-height: 40px;
+    border-collapse: collapse;
+}
+th, td{
+    border: 2px solid var(--lc2);
+    padding: 15px;
+}
+
+
+section.last {
+    --text-color: var(--white);
+    height: fit-content;
+    padding-bottom: 0;
+    margin-bottom: 80px;
+}
+section.last .container{
+    background-color: var(--c2);
+}
+section.last .container p{
+    text-align: center;
+}
+section.last .container p a{
+    color: var(--lc3);
+}
+section.last .container p a:hover{
+    color: var(--lc2);
+}
+
+/* media q */
+
+@media screen and (min-width: 320px){
+    nav{display: none;}
+    .mobile-nav {display: block;}
+}
+@media screen and (min-width: 580px){
+    nav { display: none; }
+    .mobile-nav { display: block; }
+}
+@media screen and (min-width: 768px){
+    .container, .row-container {
+        max-width: 800px;
+    }
+    nav { display: block; }
+    .mobile-nav { display: none; }
+}        
+@media screen and (min-width: 1024px){
+    .container, .row-container {
+        max-width: 1140px;
+    }
+    nav { display: block; }
+    .mobile-nav { display: none;}
+    .col-2{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .col-2 .col-content{
+        height: 415px;
+    }
+}

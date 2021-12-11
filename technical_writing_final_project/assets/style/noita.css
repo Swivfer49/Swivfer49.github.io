@@ -1,0 +1,7 @@
+@import "article.css";
+
+.hero-banner.article-header{
+    --text-color: var(--white);
+    --background:   var(--background-color) url("../img/noita-main.jpg") center center / cover no-repeat;
+    --background-image: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.51) 12%, rgba(0,0,0,0.7) 100%) , url('../img/noita-main.jpg');
+}

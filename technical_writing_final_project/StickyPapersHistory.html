@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>The history of Sticky Papers</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Xander Burnett">
+        <meta name="keywords" content="Website keywords (+ SEO)" lang="en">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"> 
+        <link rel="shortcut icon" href="https://redstapler.co/wp-content/uploads/2019/07/css-3d-cube.jpeg" type="image/x-icon">   
+        <link rel="stylesheet" href="assets/style/sph.css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    
+    </head>
+
+    <body>      
+                
+        <!-- ------------------------------- -->
+        <!-- header                          -->
+        <!-- ------------------------------- -->
+        <header>
+            <div class="container flexbox">
+                <div class="title">
+                    <img src="assets/img/icon.png" alt="">
+                    <h1><a href="Home.html">Xander Burnett</a></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="About-me.html" target="_blank">About me</a></li>
+                        <li><a href="Contact.html" target="_blank">Say something</a></li>
+                        <li><a href="Blog.html" target="_blank">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-nav">
+                    <p><i class="fas fa-bars" title="Menu"></i></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- ------------------------------- -->
+        <!-- main                            -->
+        <!-- ------------------------------- -->
+        <main>
+
+            <!-- ------------------------------- -->
+            <!-- banner                          -->
+            <!-- ------------------------------- -->
+            <div class="hero-banner article-header">
+                <div class="container">
+                    <h2>The Creation of Sticky Papers</h2>
+                    <h3>Article by Xander Burnett</h3>
+                    <h3>December 9, 2021</h3>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- section for article             -->
+            <!-- ------------------------------- -->
+            <section>
+            <div class="container">
+                <h3>Introducing Sticky Papers</h3>
+                <p>You likely haven’t heard of Sticky Papers before.  Sticky Papers is a website application where you can move, rotate and draw on sticky notes.  Sticky Papers is still a work in progress with many features that I plan on adding eventually.  In this article, I will tell you about Sticky Papers and its’ creation.</p>
+                <h3>How it started</h3>
+                <p>Sticky Papers began as a school project in 2020.  I and my friend Davin, with guidance from our mentors, Emily Baxter and Michelle Wiebe, were tasked with creating an application to solve a problem.  We eventually decided that we would solve the problem that sticky note apps were too boring and unrealistic.  Our solution was to create a new sticky note app where notes could do the following:</p>
+                <ul>
+                    <li>Be placed at any angle.</li>
+                    <li>Drawn on rather than typed.</li>
+                </ul>
+                <p>This app, we referred to as Sticky Papers.  This was because it was created to be different than other sticky note applications.  We decided to code this app using HTML, CSS, and JavaScript.    We ended up spending most of our time trying to figure out how to code draggable HTML elements.  After the due date came into view, we decided to use a JavaScript library called p5.js, made by processing.org, to speed things up.  Davin had been against using processing when we had first started the project, but now there weren’t many other options.  We eventually decided to exclude the option of rotating notes because we had no time left.  At this point, there were many other features that we planned on implementing but didn't have time to do.</p>
+                <div class="figs">
+                    <figure>
+                        <img src="assets/img/sticky_papers_design1.png" alt="the original design plan for Sticky Papers">
+                        <figcaption>The original Sticky Papers design plan</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/sticky_papers_design2.PNG" alt="how Sticky Papers looked at the due date">
+                        <figcaption>How Sticky Papers looked at this point</figcaption>
+                    </figure>
+                </div>
+                <h3>Sticky Papers now</h3>
+                <p>Now, a year later, I added Sticky Papers to the internet.  In addition to making Sticky Papers accessible, I also changed the following things:</p>
+                <ol>
+                    <li>
+                        <h3>Changed the look of the website</h3>
+                        <p></p>
+                    </li>
+                    <li>
+                        <h3>Added a rotate tool</h3>
+                        <p>Now, you can rotate papers to any angle by selecting the rotate tool, represented by a circular arrow in the toolbar, then dragging a paper to the desired angle.</p>
+                    </li>
+                    <li>
+                        <h3>Added a snap-to-grid tool</h3>
+                        <p>The grid tool can be toggled by clicking it in the toolbar.  The grid tool is represented by a checkers board icon.  When the grid tool is active, the following tools will be affected:</p>
+                        <ul>
+                            <li>The move tool will now drag papers to align to a grid</li>
+                            <li>The rotate tool will rotate papers to rounded angles</li>
+                            <li>The draw tool now draws in grid-based lines</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>Added a colour selector tool</h3>
+                        <p>You can now change the colour used by the draw tool using the circle icon in the toolbar.</p>
+                    </li>
+                    <li>
+                        <h3>Added the garbage bin</h3>
+                        <p>The garbage bin appears as a blue rectangle in the bottom right corner whenever you begin dragging a paper.  Dragging the note so that the cursor hovers over the garbage bin will delete the note.</p>
+                    </li>
+                </ol>
+                <div class="figs">
+                    <figure>
+                        <img src="assets/img/sticky_papers_design3.PNG" alt="What it looks like now">
+                        <figcaption>Sticky Papers now</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/img/grid-example.PNG" alt="example using the grid tool">
+                        <figcaption>Example of the grid tool</figcaption>
+                    </figure>
+                </div>
+                <h3>Plans for Sticky Papers</h3>
+                <p>I have many plans for Sticky Papers.  Firstly, I plan to add a saving and loading feature to the website.  Secondly, I plan on creating a Sticky Papers desktop app with features I haven’t figured out how to do in Javascript.  After I finish with the saving and loading feature and the desktop app, I plan on adding the following features:</p>
+                <ul>
+                    <li>Pins and string</li>
+                    <li>Different paper sizes</li>
+                    <li>A pen collection</li>
+                    <li>Adding images</li>
+                    <li>Zoom</li>
+                </ul>
+                <p>I also plan on adding a Sticky Papers user manual to the website.  Currently, Sticky Papers lacks optimization, which I also plan to fix in the future.</p>
+            </div>
+            </section>
+        </main>
+
+        <!-- ------------------------------- -->
+        <!-- footer                          -->
+        <!-- ------------------------------- -->
+        <footer>
+            <div class="container flexbox">
+                <div class="title">
+                    <h1>CTOAN.CO</h1>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#" target="_blank">© 2021 CTOAN.CO</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

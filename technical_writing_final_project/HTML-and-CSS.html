@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>The very basics of HTML and CSS</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Xander Burnett">
+        <meta name="keywords" content="Website keywords (+ SEO)" lang="en">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"> 
+        <link rel="shortcut icon" href="https://redstapler.co/wp-content/uploads/2019/07/css-3d-cube.jpeg" type="image/x-icon">   
+        <link rel="stylesheet" href="assets/style/htmlcss.css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    
+    </head>
+
+    <body>      
+                
+        <!-- ------------------------------- -->
+        <!-- header                          -->
+        <!-- ------------------------------- -->
+        <header>
+            <div class="container flexbox">
+                <div class="title">
+                    <img src="assets/img/icon.png" alt="">
+                    <h1><a href="Home.html">Xander Burnett</a></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="About-me.html" target="_blank">About me</a></li>
+                        <li><a href="Contact.html" target="_blank">Say something</a></li>
+                        <li><a href="Blog.html" target="_blank">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-nav">
+                    <p><i class="fas fa-bars" title="Menu"></i></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- ------------------------------- -->
+        <!-- main                            -->
+        <!-- ------------------------------- -->
+        <main>
+
+            <!-- ------------------------------- -->
+            <!-- banner                          -->
+            <!-- ------------------------------- -->
+            <div class="hero-banner article-header">
+                <div class="container">
+                    <h2>The very basics of HTML and CSS</h2>
+                    <h3>Article by Xander Burnett</h3>
+                    <h3>Last edited: Dec 9, 2021</h3>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- ------------------------------- -->
+            <!-- section for article             -->
+            <!-- ------------------------------- -->
+            <section>
+            <div class="container">
+                <h3>So you want to learn how websites are made?</h3>
+            <p>As a user of the internet you have seen many websites.  You may have wondered how websites work.  Websites make use of hypertext markup language(HTML) and cascading style sheets(CSS) to display information all across the world.</p>
+            <h3>What is HTML</h3>
+            <p>HTML is the structure of all websites.  HTML uses elements and tags to format a website.  Tags are kind of like brackets, except that they have more variety.  Tags always start with a <code>&lt</code> and end with a <code>&gt</code>.  In the middle of the tag is the type of the tag.  For example: <code>&ltp&gt</code></p>
+            <h3>HTML elements</h3>
+            <p>In code, elements are often pairs of tags that enclose some content.  On the browser side, elements group text and graphics together. The two tags are the starting tag and the ending tag.  For example: <code>&ltp&gt  &lt/p&gt</code></p>
+            <p>The starting tag can include attributes which change things about the element or its content.  For example:</p>
+            <pre><code>&ltp hidden="true" &gt  hello world  &lt/p&gt</code></pre>
+            <p>Would make that <code>&ltp&gt</code> hidden, which makes it invisible.</p>
+            <h3>Inline and block elements</h3>
+            <p>Elements can be either inline or block elements.  Block elements will start on a new line in the webpage.  Block elements will also take up all available width.  Inline elements will not start a new line.  They will only be as wide as necessary.</p>
+            <h3>How do I change how things look?</h3>
+            <p>HTML alone looks outdated.  Nowadays, HTML is paired with CSS to alter and improve the look of your website.</p>
+            <h3>What is CSS?</h3>
+            <p>CSS is made up of rules.  CSS rules are used to  change the look of specific elements.  Rules specify what elements to style using selectors.  Selectors select elements based on conditions elements might include.  For example, if the selector is <code>p</code>, it will style all elements with the <code>&ltp&gt</code> tag.  To be more selective, you can put another element selector before the <code>p</code>.  This will then select <code>&ltp&gt</code> tags that are nested inside of the element you just added.  For example:</p>
+            <pre>    <code>div p {  }</code></pre>
+            <p>selects any <code>&ltp&gt</code> elements that are inside any <code>&ltdiv&gt</code> elements.</p>
+            <p>After the selector, you can change certain properties of the selected elements to specified values.  To change a property, first type the property name, add a colon, then type the value you would like to set that property to, then a semicolon.  For example, typing <code>width: 200px;</code> will set the width of the element to 200 pixels.</p>
+            <p>All properties must be inside a pair of curly brackets after the selector.  For example:
+            </p>
+            <pre><code>    p {&NewLine;        width: 200px; &NewLine;        height: 400px; &NewLine;    }</code></pre>
+            <p>This would make all <code>&ltp&gt</code> elements be 200 pixels wide and 400 pixels tall.</p>
+            <p>In conclusion HTML and CSS are what makes websites the way they are.  HTML is used to structure your website, while CSS instructs how the HTML looks.</p>
+            </div>
+            </section>
+
+        </main>
+
+        <!-- ------------------------------- -->
+        <!-- footer                          -->
+        <!-- ------------------------------- -->
+        <footer>
+            <div class="container flexbox">
+                <div class="title">
+                    <h1>CTOAN.CO</h1>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#" target="_blank">© 2021 CTOAN.CO</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
