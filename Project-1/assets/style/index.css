@@ -1,0 +1,105 @@
+@import "base.css";
+
+body{
+    background-color: var(--bg);
+    color: dark;
+}
+h2{
+    color: var(--it);
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2:first-child{
+    margin-top: 70px;
+}
+
+.convert-box{
+    width: 50%;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.convert-box .inp{
+    display: flex;
+    padding-bottom: 15px;
+    width: 100%;
+    flex-direction: row;
+}
+
+.convert-box .inp button{
+    background-color: var(--bl);
+    color: white;
+
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+    height: 40px;
+    width: calc(30% - 15px);
+
+    line-height: 10px;
+    font-size: 15px;
+}
+.convert-box .inp button:hover{
+    border: 1px solid var(--bl);
+    background-color: var(--bg);
+    color: var(--bl);
+}
+
+.convert-box .inp input{
+    color: var(--ut);
+    border: 1px solid var(--ut);
+    background-color: var(--bg);
+    resize: none;
+    width: 70%;
+    height: 40px;
+    padding: 15px;
+    margin-right: 15px;
+    border-radius: 6px;
+    line-height: 10px;
+    font-size: 15px;
+}
+
+.convert-box .inf{
+    background-color: var(--vl);
+    color: var(--ut);
+
+    border-radius: 6px;
+    padding: 15px;
+    height: 40px;
+    line-height: 10px;
+    font-size: 15px;
+}
+
+
+button#m-button{
+    background-color: var(--bl);
+    color: white;
+
+    padding: 15px;
+    text-align: center;
+    border-radius: 35px;
+    height: 40px;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 70px;
+    line-height: 10px;
+    font-size: 15px;
+
+    align-self: center;
+
+
+}
+button#m-button:hover{
+    border: 1px solid var(--bl);
+    background-color: var(--bg);
+    color: var(--bl);
+}

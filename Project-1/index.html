@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"> 
+        <!-- <link rel="shortcut icon" href="https://redstapler.co/wp-content/uploads/2019/07/css-3d-cube.jpeg" type="image/x-icon">    -->
+        <link rel="stylesheet" href="assets/style/index.css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+        <script defer src="assets/scripts/index.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Celcius to Fahrenheit</h2>
+            <div class="convert-box">
+                <div class="inp">
+                    <input type="text" id="cf" placeholder="ex: 14">
+                <button onclick="cToF(cf.value);">convert</button>
+                </div>
+                <div class="inf" id="cf-inf"></div>
+            </div>
+
+            <h2>Fahrenheit to Celcius</h2>
+            <div class="convert-box">
+                <div class="inp">
+                    <input type="text" id="fc" placeholder="ex: 14">
+                    <button onclick="fToC(fc.value);">convert</button>
+                </div>
+                <div class="inf" id="fc-inf"></div>
+            </div>
+
+            <button onclick="swapMode();" id="m-button">dark mode</button>
+        </div>
+    </body>
+</html>
