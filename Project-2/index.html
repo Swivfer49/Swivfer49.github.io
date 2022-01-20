@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>index.html</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="Xander Burnett">
+        <meta name="keywords" content="Website keywords (+ SEO)" lang="en">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"> 
+        <link rel="shortcut icon" href="https://redstapler.co/wp-content/uploads/2019/07/css-3d-cube.jpeg" type="image/x-icon">   
+        <link rel="stylesheet" href="assets/style/index.css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+        <!-- <script defer src="assets/scripts/base.js"></script> -->
+        <script defer src="assets/scripts/index.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <div class="container">
+                <div id="pad" class="card">
+                    <div id="output" class="card"></div>
+                    <div id="buttons">
+                        
+                    </div>
+                </div>
+                <input hidden type="button" onclick="
+                let toSet = this.value; 
+                if(toSet=='dark'){
+                    this.value = 'light';
+                }
+                else if(toSet=='glow'){
+                    this.value = 'dark';
+                }
+                else{
+                    this.value = 'glow';
+                }
+                Modes.setMode(toSet);
+                " value="light" id="modes">
+            </div>
+        </main>
+        <noscript>
+            <p>This page requires a JavaScript-enabled browser</p>
+        </noscript>
+    </body>
+
+</html>

@@ -1,0 +1,82 @@
+@import "base.css";
+
+:root{
+    --background-color: #EFEEEE;
+    --button-click: rgb(220, 245, 255);
+    --button-shadow-i: #d1cdc780;
+    --button-shadow-ii: #FFFFFF80;
+    --button-text: gray;
+}
+
+#pad{
+    --button-width: 80px;
+    --button-spacing: 15px;
+    --button-font-size: 30px;
+    width: fit-content;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#output{
+    height: var(--button-width);
+    width: 100%;
+    padding: var(--button-spacing);
+    font-size: 30px;
+    border-radius: 20px;
+    line-height: calc( var(--button-width) - var(--button-spacing) * 2 );
+}
+#buttons{
+    width: fit-content;
+    margin-top: var(--button-spacing);
+}
+
+.buttonRow{
+    width: 100%;
+    height: var(--button-width);
+    margin-top: var(--button-spacing);
+}
+.buttonRow:first-child{
+    margin-top: 0;
+}
+
+.button{
+    width: var(--button-width);
+    height: var(--button-width);
+    margin-right: var(--button-spacing);
+    border-radius: calc( var(--button-width) * 0.25 );
+    font-size: var(--button-font-size);
+
+    transition: all 1s;
+}
+.button:active{
+    box-shadow: inset 6px 6px 16px var(--button-shadow-i), -6px -6px 16px var(--button-shadow-ii);
+}
+.button:last-child{
+    margin: 0;
+}
+
+.operation-button, .double-button{
+   --background-color: var(--button-click);
+}
+.double-button{
+    width: calc( var(--button-width) * 2 + var(--button-spacing) );
+}
+
+.card{
+    border-radius: calc( var(--button-width) * 0.25 );
+    background-color: var(--background-color);
+    color: var(--button-text); 
+    box-shadow: 6px 6px 16px var(--button-shadow-i), -6px -6px 16px var(--button-shadow-ii);
+}
+
+
+input#modes{
+    width: fit-content;
+    min-width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: cyan;
+    background-color: darkblue;
+    border-radius: 15px;
+}
