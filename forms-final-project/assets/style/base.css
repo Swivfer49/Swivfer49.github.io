@@ -1,0 +1,39 @@
+:root{
+    --black: #0f0f0f;
+    --white: #f0f0f0;
+    --gray: #888;
+    --header-height: 56px;
+    --footer-height: 78px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    transition: 0s;
+}
+
+body, input, textarea{
+    font-family: 'Nunito Sans', 'Open Sans', Arial, sans-serif;
+    -webkit-font-smothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0;
+}
+
+.container {
+    position: relative;
+    padding: 0 15px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.row-container{
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+}
