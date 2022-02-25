@@ -16,9 +16,12 @@ function setup(){//this is called at the start
     createCanvas( windowWidth, windowHeight - 56);//this determines the canvas size of the board
     penTool = new pen(color(0),3);
      drag=new dragDetails();//this initializes the drag information
+     reDraw();
 }
-function draw(){//this is called every frame after the start
-  background("#fdeca6");
+
+
+function reDraw(){
+    background("#fdeca6");
   for(let i=0;i<papers.length;i++){
       papers[i].draw();
       //draws all the papers on screen
@@ -29,10 +32,7 @@ function draw(){//this is called every frame after the start
       fill(0,0,250);
       rect(width-80,height-80,width,height);
   }
-  
-  
 }
-
 
 //these are the mouse events
 function mousePressed(){//this is when mouse starts being pressed
@@ -60,6 +60,7 @@ function mousePressed(){//this is when mouse starts being pressed
         papers=newPapersList;
         papers.reverse();
     }
+    reDraw();
 }
 function mouseDragged(){//this is when the mouse is down and gets moved
     if(drag.isDragging==true){
@@ -68,6 +69,7 @@ function mouseDragged(){//this is when the mouse is down and gets moved
     if(selectedTool=='draw'){//this also does drawing on the papers
         lineDraw(mouseX,mouseY,pmouseX,pmouseY,penTool);
     }
+    reDraw();
 }
 function mouseReleased(){//this is when the mouse is released
     if(drag.isDragging==true){//this ends the dragging
@@ -78,6 +80,7 @@ function mouseReleased(){//this is when the mouse is released
             
         }
     }
+    reDraw();
 }
 
 
@@ -117,6 +120,7 @@ function createPaper(){//this creates a paper where the mouse is
         drag.startDragging(newNote);
         papers.push(newNote);
     }
+    reDraw();
 }
 
 

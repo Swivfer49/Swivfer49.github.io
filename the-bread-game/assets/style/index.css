@@ -1,0 +1,63 @@
+@import "base.css";
+@import "header-footer.css";
+@import "hero-banner.css";
+
+
+#player-container{
+    position: fixed;
+    transition: transform  0.4s;
+    transform-origin: center center;
+    transform-style: flat;
+    width: 50px;
+    height: 50px;
+}
+#player-body{
+    background: url(../img/player.png) 0 0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+#player-weapon{
+    background: url(../img/player.png) 20px 0;
+    height: 50px;
+    position: absolute;
+    width: 20px;
+    transform: translateX(-10px);
+}
+
+#menu-screen, #end-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-size: 30px;
+    transition: background 2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#start-button{
+    padding: 20px;
+    background-color: #885d0d;
+    width: fit-content;
+}
+#gameover{
+    font-size: 100px;
+    margin-bottom: -15px;
+}
+#score-end{
+    color: lime;
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+#restart-button{
+    padding: 14px;
+    background-color: #61b918;
+    color: white;
+    width: fit-content;
+}
