@@ -517,6 +517,11 @@ const decentEnemy = new EnemyPrefab({width:50,height:50,
     tagname:'div',parent:document.body,classes:['enemy','physics','entity-container'],styles:{width:50,height:50,backgroundColor:'red',border:'2px solid lime'},id:'enemy-container'
     },speed:0.4,range:2,jump:50,cooldown:10,color:'#800f0f40',health:5,damage:2
 })
+const jumpyEnemy = new EnemyPrefab({width:50,height:50,
+    o:{
+    tagname:'div',parent:document.body,classes:['enemy','physics','entity-container'],styles:{width:50,height:50,backgroundColor:'green',border:'2px solid lime'},id:'enemy-container'
+    },speed:0.07,range:40,jump:50,cooldown:30,damage:5,health:2,airFriction:1.5
+})
 
 var environment = {
 }
@@ -598,10 +603,11 @@ function gameOver(){
     environment.enemies = [];
     environment.healthBar.element.remove();
     let endm = document.createElement('div');
-
+    let hs = localStorage.hasOwnProperty('breadHighscore')? localStorage.getItem('breadHighscore'):0;
     document.body.appendChild(endm);
     endm.id = 'end-menu';
-    endm.innerHTML = '<div id="gameover">Game Over</div><div id="score-end">Your score: '+environment.points+'</div><div id="restart-button" onclick="this.parentNode.remove();startGame()">restart</div>'
+    endm.innerHTML = '<div id="gameover">Game Over</div><div id="score-end">Your score: '+environment.points+'</div><div id="highscore">your highscore: '+hs+'</div><div id="restart-button" onclick="this.parentNode.remove();startGame()">restart</div>';
+    if(environment.points>hs)localStorage.setItem('breadHighscore',environment.points);
     
     JazzMusic.pause();
     GOLandAudio.play();
