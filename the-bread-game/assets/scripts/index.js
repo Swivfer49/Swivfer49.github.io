@@ -1,5 +1,34 @@
 "use strict";
 
+var ranks;
+if(localStorage.hasOwnProperty('topFive')){
+    ranks = JSON.parse(localStorage.getItem('topFive'));
+}else{
+    ranks = [];
+}
+
+function GetTopFive(){
+    if(ranks.length>0)
+    ranks.sort((a,b)=>b.points-a.points);
+    else return '';
+    let r = '<div id="topFiveTitle">Top Five Scores</div><div id="top-five">';
+    for(let i=0;i<ranks.length;i++){
+        if(i>=5)break;
+        r+=`<div class="highscore">${ranks[i].date}: ${ranks[i].points}</div>`;
+    }
+    r+='</div>';
+    return r;
+}
+function SaveScore(score){
+    ranks.push({points:score,date:new Date().toLocaleDateString('en-ca',{month:'short',day:'numeric'})});
+    ranks.sort((a,b)=>b.points-a.points);
+    if(ranks.length>5){
+        let nr = [ranks[0],ranks[1],ranks[2],ranks[3],ranks[4]];
+        ranks = nr;
+    }
+    localStorage.setItem('topFive',JSON.stringify(ranks));
+}
+
 function constrain(v,min,max){
     if(v<min)return min;
     if(v>max)return max;
@@ -603,11 +632,10 @@ function gameOver(){
     environment.enemies = [];
     environment.healthBar.element.remove();
     let endm = document.createElement('div');
-    let hs = localStorage.hasOwnProperty('breadHighscore')? localStorage.getItem('breadHighscore'):0;
     document.body.appendChild(endm);
     endm.id = 'end-menu';
-    endm.innerHTML = '<div id="gameover">Game Over</div><div id="score-end">Your score: '+environment.points+'</div><div id="highscore">your highscore: '+hs+'</div><div id="restart-button" onclick="this.parentNode.remove();startGame()">restart</div>';
-    if(environment.points>hs)localStorage.setItem('breadHighscore',environment.points);
+    endm.innerHTML = '<div id="gameover">Game Over</div><div id="score-end">Your score: '+environment.points+'</div>'+GetTopFive()+'<div id="restart-button" onclick="this.parentNode.remove();startGame()">restart</div>';
+    SaveScore(environment.points);
     
     JazzMusic.pause();
     GOLandAudio.play();
